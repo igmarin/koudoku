@@ -10,6 +10,10 @@ module Koudoku
       g.helper false
     end
 
+    config.to_prepare do
+      ApplicationController.helper(ActionView::Helpers::ApplicationHelper)
+    end
+
     initializer 'koudoku.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
         helper Koudoku::ApplicationHelper
